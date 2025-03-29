@@ -1,0 +1,86 @@
+# Game Modules Documentation
+
+## Overview
+This documentation provides an overview of the game-related modules, including their purpose, class structures, and functionality.
+
+## 1. GameManager Module
+
+### Description
+The `GameManager` class handles the core game logic, including score management, player interactions, and entity selection.
+
+### Class: `GameManager`
+
+#### Attributes:
+- `int outOf` – Defines the number of rounds (default: best of 3).
+- `int scoreIncrement` – Multiplier for score increment based on times won.
+- `bool multiplayer` – Indicates if the game is multiplayer (default: true).
+
+#### Methods:
+- `GameManager(const int&, const int&, bool);` – Constructor to initialize game settings.
+- `void setOutOf(int);` – Sets the number of rounds.
+- `void setScoreIncrement(int);` – Sets the score increment multiplier.
+- `int getOutOf() const;` – Returns the number of rounds.
+- `int getScoreIncrement() const;` – Returns the score increment multiplier.
+- `bool getMultiplayer() const;` – Returns whether the game is multiplayer.
+- `void incrementScore(Player&, Player&);` – Increments the score for a player.
+- `void displayScore(Player&, Player&) const;` – Displays the score of both players.
+- `void chosePlayer(int, std::vector<Entity *>, Player&);` – Allows a player to select an entity.
+- `int assignRandomEntity(std::vector<Entity*>);` – Assigns a random entity to a player.
+- `void displayEntities(std::vector<Entity *>) const;` – Displays available entities.
+- `void displayWinner(Player&, Player&);` – Displays the game winner.
+
+## 2. Entity Module
+
+### Description
+The `Entity` class represents entities in the game, including their names and the entities they can defeat.
+
+### Class: `Entity`
+
+#### Attributes:
+- `std::string name` – Name of the entity.
+- `std::vector<Entity *> *killable` – List of entities this entity can defeat.
+- `static std::vector<Entity*> totalEntityList` – A static list of all entities.
+
+#### Methods:
+- `Entity();` – Default constructor.
+- `Entity(const std::string&);` – Constructor initializing the entity with a name.
+- `Entity(std::vector<Entity*>*);` – Constructor initializing the entity with a list of entities it can defeat.
+- `Entity(const std::string&, std::vector<Entity*>*);` – Constructor initializing both name and killable list.
+- `~Entity();` – Destructor.
+- `void setName(const std::string&);` – Sets the entity name.
+- `void setKillable(std::vector<Entity*>*);` – Sets the list of killable entities.
+- `std::string getName() const;` – Returns the entity name.
+- `std::vector<Entity*>* getKillable() const;` – Returns the list of entities this entity can defeat.
+- `static std::vector<Entity*> getTotalEntities();` – Returns the total list of entities.
+- `void appendToKillable(Entity*);` – Adds an entity to the killable list.
+
+## 3. Player Module
+
+### Description
+The `Player` class represents a player in the game, tracking their name, selected entity, and score.
+
+### Class: `Player`
+
+#### Attributes:
+- `std::string name` – Player's name.
+- `Entity* chosenEntity` – The entity selected by the player.
+- `int score` – Player's current score.
+
+#### Methods:
+- `Player(const std::string&);` – Constructor initializing the player with a name.
+- `Player();` – Default constructor.
+- `~Player();` – Destructor.
+- `void setName(const std::string&);` – Sets the player's name.
+- `void setScore(int);` – Sets the player's score.
+- `void setEntity(Entity*);` – Assigns an entity to the player.
+- `Entity* getEnitity() const;` – Returns the player's chosen entity (note: typo, should be `getEntity()`).
+- `std::string getName() const;` – Returns the player's name.
+- `int getScore() const;` – Returns the player's score.
+
+## Notes
+- The `GameManager` class is responsible for handling game logic and player interactions.
+- The `Entity` class defines the attributes and behavior of in-game entities.
+- The `Player` class tracks individual players, their scores, and selected entities.
+
+This documentation provides an overview of the core functionality of the game modules. Further implementation details will be added as needed.
+
