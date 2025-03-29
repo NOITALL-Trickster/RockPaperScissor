@@ -27,7 +27,7 @@ void Player::setEntity(Entity* e) {
 	chosenEntity = e;
 }
 
-Entity* Player::getEnitity()const {
+Entity* Player::getEntity()const {
 	return chosenEntity;
 }
 

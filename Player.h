@@ -22,7 +22,7 @@ public:
     void setEntity(Entity*); // Set chosen entity
 
     // Getters
-    Entity* getEnitity() const; // Get chosen entity (note: typo in method name)
+    Entity* getEntity() const; // Get chosen entity (note: typo in method name)
     std::string getName() const; // Get player name
     int getScore() const; // Get player score
 };
