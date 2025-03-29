@@ -38,18 +38,18 @@ void GameManager::displayScore(Player& p1, Player& p2) const {
 };
 
 void GameManager::incrementScore(Player& p1, Player& p2) {
-	if (p1.getEnitity()->getName() == p2.getEnitity()->getName()) {
-		std::cout << p1.getEnitity()->getName() << " ties with " << p2.getEnitity()->getName() << std::endl;
+	if (p1.getEntity()->getName() == p2.getEntity()->getName()) {
+		std::cout << p1.getEntity()->getName() << " ties with " << p2.getEntity()->getName() << std::endl;
 		std::cout << "Player " << p1.getName() << " ties with " << "player " << p2.getName() << std::endl;
 	}
 	else {
-		if (canItKill(p1.getEnitity(), p2.getEnitity())) {
-			std::cout << p1.getEnitity()->getName() << " gobles " << p2.getEnitity()->getName() << std::endl;
+		if (canItKill(p1.getEntity(), p2.getEntity())) {
+			std::cout << p1.getEntity()->getName() << " gobles " << p2.getEntity()->getName() << std::endl;
 			std::cout << "Player " << p1.getName() << " beats " << "player " << p2.getName() << std::endl;
 			p1.setScore(scoreIncrement);
 		}
 		else {
-			std::cout << p2.getEnitity()->getName() << " gobles " << p1.getEnitity()->getName() << std::endl;
+			std::cout << p2.getEntity()->getName() << " gobles " << p1.getEntity()->getName() << std::endl;
 			std::cout << "Player " << p2.getName() << " beats " << "player " << p1.getName() << std::endl;
 			p2.setScore(scoreIncrement);
 		}
